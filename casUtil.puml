@@ -1,0 +1,54 @@
+@startuml
+
+!define TITLE_FONT_SIZE 14
+!define ACTOR_FONT_SIZE 12
+!define PARTICIPANT_FONT_SIZE 12
+!define CASE_FONT_SIZE 12
+
+skinparam title {
+    FontSize TITLE_FONT_SIZE
+    BorderColor #000000
+    BackgroundColor #F0F0F0
+}
+
+skinparam actor {
+    FontSize ACTOR_FONT_SIZE
+    BackgroundColor White
+    BorderColor Black
+}
+
+skinparam participant {
+    FontSize PARTICIPANT_FONT_SIZE
+    BackgroundColor LightSkyBlue
+    BorderColor Black
+}
+
+skinparam usecase {
+    FontSize CASE_FONT_SIZE
+    BackgroundColor LightGreen
+    BorderColor Black
+}
+
+title Gestion de la Location d'Appartements
+
+actor Visiteur as visitor
+actor Locataire as tenant
+actor Propriétaire as landlord
+
+participant "Application" as app
+
+visitor -> app: Rechercher une location
+visitor -> app: Visiter un appartement
+visitor -> app: Louer un appartement
+
+visitor --> tenant: Devenir locataire
+
+tenant -> app: Consulter ses locations
+tenant -> app: Consulter le profil du propriétaire
+
+landlord -> app: Ajouter une location
+landlord -> app: Supprimer une location
+landlord -> app: Modifier une location
+landlord -> app: Consulter le profil des locataires
+
+@enduml

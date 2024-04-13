@@ -1,0 +1,103 @@
+@startuml
+
+entity appartements {
+  + ID_APPART: int
+  TYPEAPPART: varchar(255)
+  PRIX_LOC: decimal(10,2)
+  PRIX_CHARGE: decimal(10,2)
+  ETAGE: int
+  PARKING: tinyint(1)
+  ASCENSEUR: tinyint(1)
+  IMAGE: varchar(255)
+  ID_COORDONNEE: int
+  ID_PROPRIETAIRE: int
+}
+
+entity arrondissement {
+  + ARRONDISS_DEM: int
+}
+
+entity concerner {
+  + NUM_DEM: int
+  + ARRONDISS_DEM: int
+}
+
+entity coordonnees {
+  + ID_COORDONNEE: int
+  ADRESSE: varchar(50)
+  CP: bigint
+  VILLE: varchar(50)
+}
+
+entity demandes {
+  + NUM_DEM: int
+  TYPE_DEM: varchar(10)
+  DATE_LIMITE: date
+  ID_VISITEUR: int
+}
+
+entity locataires {
+  + ID_LOCATAIRE: int
+  NOM: varchar(50)
+  PRENOM: varchar(50)
+  TEL: varchar(50)
+  LOGIN: varchar(50)
+  MDP: varchar(50)
+  RIB: int
+  TEL_BANQUE: varchar(50)
+  DATENAISS: date
+  ID_COORDONNEE: int
+}
+
+entity occuper {
+  + ID_APPART: int
+  + ID_LOCATAIRE: int
+  DATE_SIGNATURE_CONTRAT: date
+  DATE_PREAVIS: date
+}
+
+entity proprietaires {
+  + ID_PROPRIETAIRE: int
+  NOM: varchar(50)
+  PRENOM: varchar(50)
+  TEL: varchar(50)
+  LOGIN: varchar(50)
+  MDP: varchar(50)
+  ID_COORDONNEE: int
+}
+
+entity visiter {
+  + ID_APPART: int
+  + ID_VISITEUR: int
+  DATE_VISITE: date
+}
+
+entity visiteurs {
+  + ID_VISITEUR: int
+  NOM: varchar(50)
+  PRENOM: varchar(50)
+  TEL: varchar(50)
+  LOGIN: varchar(50)
+  MDP: varchar(50)
+  ID_COORDONNEE: int
+}
+
+appartements --> coordonnees: Est situé à
+appartements --> proprietaires: Appartient à
+
+concerner --> demandes: Concerne 
+concerner --> arrondissement: Est dans
+
+demandes --> visiteurs: Demandée par
+
+locataires --> coordonnees: Réside à
+
+occuper --> appartements: Occupe
+occuper --> locataires: Est occupé par
+
+visiter --> appartements: Visite
+visiter --> visiteurs: Est visité par
+
+visiteurs --> coordonnees: Résident à
+
+@enduml

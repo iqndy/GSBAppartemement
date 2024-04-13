@@ -1,0 +1,252 @@
+h1 {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: 0 0 10px #fff; /* Couleur de l'ombre néon */
+}
+
+/* Styles for body */
+body {
+  background-image: url("../picture/wallpaper.svg");
+  background-repeat: repeat; /* Répétez l'image horizontalement et verticalement si nécessaire */
+  background-size: cover; /* Ajustez automatiquement la taille de l'image pour couvrir la fenêtre */
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: white;
+}
+
+html, body {
+  height: 100%; /* Assurez-vous que le corps et l'élément HTML occupent 100% de la hauteur de la fenêtre */
+}
+
+/* Styles for buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #d6485f;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 0 10px #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+  width: 200px;
+}
+
+.btn:hover {
+  background-color: #fa7268;
+}
+
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #e85c63;
+  border-radius: 8px;
+  box-shadow: 0 0 20px #e85c63, /* Couleur de l'ombre néon */
+              0 0 20px #e85c63 inset; /* Couleur de l'ombre interne */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="date"]
+input[type="submit"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Styles pour le bouton submit */
+input[type="submit"] {
+  font-family: Arial, sans-serif; /* Utilisez la police de caractères souhaitée */
+  font-size: 16px; /* Ajustez la taille de la police si nécessaire */
+  outline: none; /* Supprime le contour autour du bouton */
+  border: 1px solid transparent; /* Supprime la bordure */
+}
+
+/* Styles pour les cases à cocher */
+.checkbox-container {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px; /* Marge à droite pour l'espacement */
+}
+
+.checkbox-label {
+  color: #ffffff; /* Couleur du texte */
+  font-size: 16px; /* Taille de la police */
+  font-family: Arial, sans-serif; /* Utilisez la police de caractères souhaitée */
+}
+
+.checkbox-input {
+  appearance: none; /* Masque l'apparence par défaut du navigateur */
+  -webkit-appearance: none; /* Pour les navigateurs WebKit */
+  -moz-appearance: none; /* Pour les navigateurs Firefox */
+  width: 20px; /* Largeur de la case à cocher */
+  height: 20px; /* Hauteur de la case à cocher */
+  border: 2px solid #666; /* Bordure de la case à cocher */
+  border-radius: 4px; /* Bordure arrondie */
+  background-color: #fff; /* Couleur de fond */
+  margin: 0; /* Réinitialise la marge */
+  cursor: pointer; /* Curseur de type pointer */
+}
+
+/* Style au survol de la case à cocher */
+.checkbox-input:hover {
+  background-color: #f0f0f0; /* Changement de couleur de fond */
+}
+
+/* Style lorsque la case à cocher est cochée */
+.checkbox-input:checked {
+  background-color: #001220; /* Couleur de fond lorsque cochée */
+}
+
+/* Style de la marque de la case à cocher (symbole de coche) */
+.checkbox-input:checked::after {
+  content: "\2713"; /* Code Unicode pour le symbole de coche */
+  color: #e85c63; /* Couleur de la marque */
+  font-size: 16px; /* Taille de la police de la marque */
+  position: relative; /* Position relative au conteneur parent */
+  top: -3px; /* Décalage vers le haut */
+  left: 3px; /* Décalage vers la gauche */
+}
+
+/* Styles for appartements */
+.appartements-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.appartement {
+  width: calc(33.33% - 20px); /* 33.33% pour afficher trois appartements par ligne */
+  margin-bottom: 20px;
+  background-color: #e85c63;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.appartement img {
+  width: 100%; /* Modifier la largeur de l'image pour qu'elle prenne toute la largeur du conteneur parent */
+  height: auto;
+  border-radius: 5px;
+}
+
+.details {
+  margin-top: 10px;
+}
+
+.delete-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: rgba(255, 0, 0, 0.8); /* Couleur de l'icône de suppression avec transparence */
+  font-size: 24px; /* Taille de l'icône */
+  background-color: rgba(255, 255, 255, 0.8); /* Fond avec transparence */
+  border-radius: 50%; /* Bordure arrondie pour un aspect plus esthétique */
+  padding: 5px; /* Espacement intérieur pour une meilleure apparence */
+  transition: background-color 0.3s, color 0.3s; /* Animation de transition pour un effet de survol */
+    text-decoration: none; /* Supprime le soulignement du texte */
+  
+  
+}
+
+.delete-icon:hover {
+  color: white; /* Couleur de l'icône au survol */
+  background-color: rgba(255, 0, 0, 0.8); /* Fond de couleur au survol */
+}
+
+.image-appartement {
+  max-width: 200px; /* Définissez la largeur maximale souhaitée */
+  height: auto; /* Pour conserver les proportions de l'image */
+}
+
+/* Styles for table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Styles for table headers */
+th {
+  background-color: #e85c63;
+  color: white;
+  padding: 12px 15px;
+  text-align: left;
+}
+
+/* Styles for table cells */
+td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+}
+
+/* Style for table rows */
+tr:nth-child(even) {
+  background-color: #001220;
+}
+
+/* Hover effect on table rows */
+tr:hover {
+  background-color: #e85c636e
+}
+
+
+
+.info-container {
+  margin-top: 20px; /* Marge supérieure pour espacement */
+  padding: 20px; /* Remplissage pour un meilleur espacement intérieur */
+  border: 1px solid #ccc; /* Bordure grise autour du conteneur */
+  border-radius: 5px; /* Coins arrondis du conteneur */
+  background-color: #e85c63; /* Couleur de fond du conteneur */
+  color: white; /* Couleur du texte */
+  width: 300px; /* Largeur du conteneur */
+  display: flex; /* Utilisation de flexbox */
+  flex-direction: column; /* Alignement vertical des éléments */
+  align-items: center; /* Centrage horizontal */
+  margin: 20px auto; /* Permet de centrer le conteneur horizontalement */
+}
+
+
+/* Style pour les labels */
+.info-container label {
+  font-weight: bold; /* Texte en gras pour les labels */
+  margin-bottom: 5px; /* Marge inférieure pour l'espacement entre les lignes */
+}
+
+/* Style pour les valeurs */
+.info-container span {
+  color: white; /* Couleur du texte des valeurs */
+  margin-bottom: 5px; /* Marge inférieure pour l'espacement entre les lignes */
+}
