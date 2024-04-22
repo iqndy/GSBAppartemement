@@ -38,8 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_GET['action']) && $_GET['ac
         $_SESSION["Tel_Banque_Locataire"] = $Locataire["TEL_BANQUE"];
         $_SESSION["Date_Naiss_Locataire"] = $Locataire["DATENAISS"];
         $_SESSION["Coordonnee_Locataire"] = $Locataire["ID_COORDONNEE"];
-
-
         header("Location: ./?action=ProfilLocataire");
         exit();
     } elseif ($DAOVisiteur->checkLogin($login, $MotDePasse)) {

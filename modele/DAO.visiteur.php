@@ -1,6 +1,7 @@
 <?php
 
 include_once 'bd.inc.php';
+include_once 'bd.visiteur.php';
 
 class DAOVisiteur {
 
@@ -125,6 +126,35 @@ class DAOVisiteur {
         } else {
         
             return false;
+        }
+    }
+
+    public function getVisiteurById($idVisiteur) {
+        try {
+            $req = $this->conn->prepare("SELECT * FROM VISITEURS WHERE ID_VISITEUR = :idVisiteur");
+            $req->bindParam(':idVisiteur', $idVisiteur);
+            $req->execute();
+            $resultat = $req->fetch(PDO::FETCH_ASSOC);
+            if ($req->rowCount() > 0) {
+    
+                // Créer l'objet Proprietaire en utilisant les valeurs de l'enregistrement
+                $visiteur = new Visiteur(
+                    $resultat['ID_VISITEUR'],
+                    $resultat['NOM'],
+                    $resultat['PRENOM'],
+                    $resultat['TEL'],
+                    $resultat['LOGIN'],
+                    $resultat['MDP'],
+                    $resultat['ID_COORDONNEE'],
+                );
+    
+                return $visiteur;
+            } else {
+                return null; // Aucun résultat trouvé
+            }
+        } catch (Exception $ex) {
+            print "Erreur !: " . $ex->getMessage();
+            die();
         }
     }
     

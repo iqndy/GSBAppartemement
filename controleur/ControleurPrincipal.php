@@ -22,8 +22,20 @@ class ControleurPrincipal {
         $this->actions["LesAppartements"] = "LesAppartements.php";
         $this->actions["LouerAppartement"] = "LouerAppartement.php";
         $this->actions["DetailsAppartement"] = "DetailsAppartement.php";
+        $this->actions["VisiterAppartement"] = "VisiterAppartement.php";
+        $this->actions["MesVisitesProp"] = "MesVisitesProp.php";
+        $this->actions["AccepterVisite"] = "AccepterVisite.php";
+        $this->actions["RefuserVisite"] = "RefuserVisite.php";
+        $this->actions["MesVisitesVisit"] = "MesVisitesVisit.php";
+        $this->actions["DemandeLoc"] = "DemandeLoc.php";
+        $this->actions["MesDemandesProp"] = "MesDemandesProp.php";
+        $this->actions["MesDemandesVisit"] = "MesDemandesVisit.php";
+        $this->actions["AccepterDemande"] = "AccepterDemande.php";
+        $this->actions["RefuserDemande"] = "RefuserDemande.php";
         
-
+     
+        
+        
 
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 include_once 'bd.inc.php';
+include_once 'bd.locataire.php';
 
 class DAOLocataire
 {
@@ -47,29 +48,26 @@ class DAOLocataire
         return $resultat;
     }
 
-    public function addLocataire($nom, $login, $prenom, $adresse, $cp, $ville, $dateEmbauche, $MotDePasse, $mail)
-    {
-
+    public function addLocataire($idvisiteur, $nom, $prenom, $tel, $login, $mdp, $rib, $telBanque, $dateNaiss, $id_coordonnee){
         try {
-            $req = $this->conn->prepare("INSERT INTO visiteur (`nom`, `login`, `prenom`, `adresse`, `cp`, `ville`, `dateEmbauche`, `MotDePasse`, `mail`) VALUES (:nom, :login, :prenom, :adresse, :cp, :ville, :dateEmbauche, :MotDePasse, :mail)");
+            $req = $this->conn->prepare("INSERT INTO locataires (`id_locataire`,`nom`, `prenom`, `tel`, `login`, `mdp`, `rib`, `tel_Banque`, `dateNaiss`, `id_coordonnee`) VALUES (:idvisiteur, :nom, :prenom, :tel, :login, :mdp, :rib, :telBanque, :dateNaiss, :id_coordonnee)");
 
+            $req->bindValue(':id_locataire', $idvisiteur, PDO::PARAM_INT);
             $req->bindValue(':nom', $nom, PDO::PARAM_STR);
-            $req->bindValue(':login', $login, PDO::PARAM_STR); // Correction ici
             $req->bindValue(':prenom', $prenom, PDO::PARAM_STR);
-            $req->bindValue(':mail', $mail, PDO::PARAM_STR);
-            $hashedPassword = password_hash($MotDePasse, PASSWORD_DEFAULT); // Hashage du mot de passe
-            $req->bindValue(':MotDePasse', $hashedPassword, PDO::PARAM_STR);
-            $req->bindValue(':adresse', $adresse, PDO::PARAM_STR);
-            $req->bindValue(':cp', $cp, PDO::PARAM_STR);
-            $req->bindValue(':ville', $ville, PDO::PARAM_STR);
-            $req->bindValue(':dateEmbauche', $dateEmbauche, PDO::PARAM_STR);
-
-            $resultat = $req->execute();
+            $req->bindValue(':tel', $tel, PDO::PARAM_STR);
+            $req->bindValue(':login', $login, PDO::PARAM_STR);
+            $req->bindValue(':mdp', $mdp, PDO::PARAM_STR);
+            $req->bindValue(':rib', $rib, PDO::PARAM_INT);
+            $req->bindValue(':tel_Banque', $telBanque, PDO::PARAM_STR);
+            $req->bindValue(':dateNaiss', $dateNaiss, PDO::PARAM_STR);
+            $req->bindValue(':id_coordonnee', $id_coordonnee, PDO::PARAM_INT);
+            $req->execute();
         } catch (PDOException $e) {
             print "Erreur !: " . $e->getMessage();
+            PRINT "erreur de qdazdazd";
             die();
         }
-        return $resultat;
     }
 
     public function getLocataireBylogin($login)
@@ -86,6 +84,42 @@ class DAOLocataire
         }
         return $resultat;
     }
+
+    public function getLocataireById($idLocataire)
+    {
+        try {
+            $req = $this->conn->prepare("SELECT * FROM Locataires WHERE id = :idLocataire");
+            $req->bindValue(':ID_LOCATAIRE', $idLocataire, PDO::PARAM_INT);
+            $req->execute();
+            $resultat = $req->fetch(PDO::FETCH_ASSOC);
+            // var_dump($resultat); // Affiche le tableau complet récupéré depuis la base de données
+          // Vérifier si la requête a retourné un résultat
+          if ($req->rowCount() > 0) {
+            $resultat = $req->fetch(PDO::FETCH_ASSOC);
+
+            // Créer l'objet Proprietaire en utilisant les valeurs de l'enregistrement
+            $locataire = new Locataire(
+                $resultat['ID_LOCATAIRE'],
+                $resultat['NOM'],
+                $resultat['PRENOM'],
+                $resultat['TEL'],
+                $resultat['LOGIN'],
+                $resultat['MDP'],
+                $resultat['RIB'],
+                $resultat['TELBANQUE'],
+                $resultat['DATENAISS'],
+                $resultat['ID_COORDONNEE'],
+            );
+
+            return $locataire;
+        } else {
+            return null; // Aucun résultat trouvé
+        }
+    } catch (Exception $ex) {
+        print "Erreur !: " . $ex->getMessage();
+        die();
+    }
+}
 
     public function getLocataireMdp($login)
     {

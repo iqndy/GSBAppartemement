@@ -42,7 +42,19 @@ class DAOAppartement
         }
     }
 
-
+    public function getTypeAppartementById($idAppartement) {
+        try {
+            $req = $this->conn->prepare("SELECT TYPEAPPART FROM APPARTEMENTS WHERE ID_APPART = :idAppartement");
+            $req->bindParam(':idAppartement', $idAppartement);
+            $req->execute();
+            $resultat = $req->fetch(PDO::FETCH_ASSOC);
+            return $resultat['TYPEAPPART'];
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage();
+            die();
+        }
+    }
+    
 
     public function getAppartementById($id)
     {

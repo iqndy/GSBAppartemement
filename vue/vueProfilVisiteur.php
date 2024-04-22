@@ -11,6 +11,8 @@
 <h1>Profil Visiteur</h1>
 <a href="./?action=logout" class="btn">Déconnexion</a>
 <a href="./?action=LesAppartements" class="btn">Les appartements</a>
+<a href="./?action=MesVisitesVisit" class="btn">Mes visites</a>
+<a href="./?action=MesDemandesVisit" class="btn">Mes demandes</a>
 <br>
 
 <?php

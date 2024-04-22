@@ -4,7 +4,7 @@ class Locataire extends Personne{
     private $rib;
     private $dateNaissance;
     private $telBanque;
-public function __construct($numPersonne, $nom, $prenom, $id_coordonnee, $tel, $login, $mdp, $rib, $dateNaissance, $telBanque){
+public function __construct($numPersonne, $nom, $prenom, $tel, $login, $mdp, $rib, $telBanque, $dateNaissance, $id_coordonnee ){
     parent::__construct($numPersonne, $nom, $prenom, $id_coordonnee, $tel, $login, $mdp);
     $this->rib = $rib;
     $this->dateNaissance = $dateNaissance;

@@ -52,7 +52,7 @@ public function getOccuperById($id)
 }
 
 
-public function addOccuper($id_locataire, $id_appart)
+public function louerAppartement($id_locataire, $id_appart)
 {
 
     try {

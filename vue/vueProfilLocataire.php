@@ -14,23 +14,23 @@
 <div class="info-container">
     <div>
         <label for="nom">Nom :</label>
-        <span><?= $_SESSION["Nom_Proprietaire"] ?></span>
+        <span><?= $_SESSION["Nom_Locataire"] ?></span>
     </div>
     <div>
         <label for="prenom">Prénom :</label>
-        <span><?= $_SESSION["Prenom_Proprietaire"] ?></span>
+        <span><?= $_SESSION["Prenom_Locataire"] ?></span>
     </div>
     <div>
         <label for="tel">Téléphone :</label>
-        <span><?= $_SESSION["Tel_Proprietaire"] ?></span>
+        <span><?= $_SESSION["Tel_Locataire"] ?></span>
     </div>
     <div>
         <label for="login">Login :</label>
-        <span><?= $_SESSION["Login_Proprietaire"] ?></span>
+        <span><?= $_SESSION["Login_Locataire"] ?></span>
     </div>
     <div>
         <label for="coordonnee">Coordonnée :</label>
-        <span><?= $_SESSION["Coordonnee_Propritaire"] ?></span>
+        <span><?= $_SESSION["Coordonnee_Locataire"] ?></span>
     </div>
 </div>
 

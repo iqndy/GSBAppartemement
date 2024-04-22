@@ -13,6 +13,8 @@
     <nav>
         <a href="./?action=logout" class="btn">Déconnexion</a>
         <a href="./?action=MesAppartements" class="btn">Mes appartements</a>
+        <a href="./?action=MesVisitesProp" class="btn">Mes visites</a>
+        <a href="./?action=MesDemandesProp" class="btn">Mes demandes</a>
     </nav>
     <div class="info-container">
         <?php

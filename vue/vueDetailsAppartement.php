@@ -109,9 +109,9 @@
 
 <!-- Formulaire de location -->
 <form action="./" method="GET">
-    <input type="hidden" name="action" value="LouerAppartement">
+    <input type="hidden" name="action" value="VisiterAppartement">
     <input type="hidden" name="id_appartement" value="<?= $id_appartement ?>">
-    <input type="submit" value="demande" class="btn">
+    <input type="submit" value="visiter" class="btn">
 </form>
 
 </body>
